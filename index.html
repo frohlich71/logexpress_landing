@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -8,8 +8,22 @@
       name="description"
       content="LogExpress — moto-fretamento e entregas para farmácias de manipulação e laboratórios em São Paulo e Grande SP. Preço único de R$ 11,00, sem vínculo trabalhista, há mais de 10 anos no mercado."
     />
-    <meta name="theme-color" content="#0E0E10" />
+    <meta name="theme-color" content="#08080A" />
     <title>LogExpress — Serviços de Entregas para Farmácias e Laboratórios</title>
+    <script>
+      // Aplica o tema antes da pintura para evitar flash. Padrão: dark.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          document.documentElement.setAttribute(
+            'data-theme',
+            stored === 'light' || stored === 'dark' ? stored : 'dark',
+          )
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

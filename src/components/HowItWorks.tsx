@@ -26,7 +26,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative bg-ink-950 py-20 text-white md:py-28">
+    <section className="relative bg-feature py-20 text-feature-fg md:py-28">
       <div className="bg-grid absolute inset-0 opacity-[0.06]" />
       <div className="relative mx-auto max-w-6xl px-5">
         <Reveal className="mx-auto max-w-2xl text-center">

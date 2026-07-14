@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource-variable/space-grotesk'
-import '@fontsource-variable/inter'
+import '@fontsource-variable/merriweather'
 import './index.css'
 import App from './App.tsx'
 

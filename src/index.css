@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Merriweather Variable', ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+  --font-display: 'Merriweather Variable', ui-serif, Georgia, Cambria, 'Times New Roman', serif;
 
-  /* Marca LogExpress */
+  /* Marca LogExpress (amarelo) — igual nos dois temas */
   --color-brand-50: #fffbeb;
   --color-brand-100: #fff3c4;
   --color-brand-200: #ffe680;
@@ -36,11 +36,74 @@
   --color-zone-sudeste: #22d3ee;
   --color-zone-leste: #22c55e;
 
+  /* Tokens semânticos — apontam para variáveis que trocam por tema.
+     A substituição de custom properties acontece no ponto de uso,
+     então utilitários como bg-bg / text-fg seguem o tema atual. */
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-faint: var(--fg-faint);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-feature: var(--feature);
+  --color-feature-fg: var(--feature-fg);
+  --color-inverse: var(--inverse);
+  --color-inverse-fg: var(--inverse-fg);
+  --color-accent: var(--accent);
+
   --shadow-glow: 0 20px 60px -20px rgb(245 179 1 / 0.45);
 }
 
-:root {
+/* ---------- Tema claro ---------- */
+:root,
+[data-theme='light'] {
   color-scheme: light;
+
+  --bg: #ffffff;
+  --fg: #0e0e10;
+  --fg-muted: #494e57;
+  --fg-subtle: #5e646d;
+  --fg-faint: #7c828c;
+
+  --card: #ffffff;
+  --card-2: #f6f6f7;
+  --line: #e6e7e9;
+  --line-strong: #cfd1d5;
+
+  --feature: #0e0e10;
+  --feature-fg: #ffffff;
+  --inverse: #0e0e10;
+  --inverse-fg: #ffffff;
+  --accent: #d69600;
+
+  --grid-line: rgb(0 0 0 / 0.04);
+}
+
+/* ---------- Tema escuro (padrão) ---------- */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #08080a;
+  --fg: #f5f5f6;
+  --fg-muted: #b6bac1;
+  --fg-subtle: #90959e;
+  --fg-faint: #6b7079;
+
+  --card: #141417;
+  --card-2: #1b1b1f;
+  --line: rgb(255 255 255 / 0.09);
+  --line-strong: rgb(255 255 255 / 0.16);
+
+  --feature: #131317;
+  --feature-fg: #f5f5f6;
+  --inverse: #f5f5f6;
+  --inverse-fg: #0e0e10;
+  --accent: #ffc70a;
+
+  --grid-line: rgb(255 255 255 / 0.05);
 }
 
 html {
@@ -56,8 +119,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: #ffffff;
-  color: var(--color-ink-900);
+  background-color: var(--bg);
+  color: var(--fg);
   overflow-x: hidden;
 }
 
@@ -85,10 +148,31 @@ body {
   }
 }
 
-/* Grid de fundo sutil */
+/* Grid de fundo sutil (segue o tema) */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgb(0 0 0 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+/* ---------- Transição de tema (View Transitions API) ---------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
 }

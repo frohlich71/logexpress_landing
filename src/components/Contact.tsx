@@ -32,7 +32,7 @@ export default function Contact() {
     <section id="contato" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2rem] bg-ink-950 px-6 py-12 text-white sm:px-12 md:py-16">
+          <div className="relative overflow-hidden rounded-[2rem] border border-line bg-feature px-6 py-12 text-feature-fg sm:px-12 md:py-16">
             <div className="bg-grid absolute inset-0 opacity-[0.06]" />
             <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-400/20 blur-3xl" />
 

@@ -5,7 +5,7 @@ interface LogoProps {
 
 /** Wordmark LOG (ink) + EXPRESS (amarelo) com ícone de entrega. */
 export default function Logo({ className = '', variant = 'dark' }: LogoProps) {
-  const logColor = variant === 'light' ? '#ffffff' : 'var(--color-ink-950)'
+  const logColor = variant === 'light' ? '#ffffff' : 'var(--fg)'
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <span className="relative grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-400 shadow-sm">
@@ -33,7 +33,7 @@ export default function Logo({ className = '', variant = 'dark' }: LogoProps) {
         className="font-display text-xl font-bold tracking-tight"
         style={{ color: logColor }}
       >
-        LOG<span className="text-brand-500">EXPRESS</span>
+        LOG<span className="text-accent">EXPRESS</span>
       </span>
     </span>
   )
