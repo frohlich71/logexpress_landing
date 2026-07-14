@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Marca LogExpress */
+  --color-brand-50: #fffbeb;
+  --color-brand-100: #fff3c4;
+  --color-brand-200: #ffe680;
+  --color-brand-300: #ffd633;
+  --color-brand-400: #ffc70a;
+  --color-brand-500: #f5b301;
+  --color-brand-600: #d69600;
+  --color-brand-700: #a86f02;
+  --color-brand-800: #8a5a08;
+  --color-brand-900: #74490b;
+
+  --color-ink-50: #f6f6f7;
+  --color-ink-100: #e6e7e9;
+  --color-ink-200: #cfd1d5;
+  --color-ink-300: #a9adb4;
+  --color-ink-400: #7c828c;
+  --color-ink-500: #5e646d;
+  --color-ink-600: #494e57;
+  --color-ink-700: #3a3e46;
+  --color-ink-800: #26282e;
+  --color-ink-900: #16171b;
+  --color-ink-950: #0e0e10;
+
+  /* Zonas do mapa (paleta do PDF) */
+  --color-zone-capital: #b9bec7;
+  --color-zone-norte: #ef4444;
+  --color-zone-oeste: #facc15;
+  --color-zone-sudoeste: #6366f1;
+  --color-zone-sudeste: #22d3ee;
+  --color-zone-leste: #22c55e;
+
+  --shadow-glow: 0 20px 60px -20px rgb(245 179 1 / 0.45);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: var(--color-ink-900);
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Marquee de parceiros */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* Grid de fundo sutil */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(0 0 0 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
