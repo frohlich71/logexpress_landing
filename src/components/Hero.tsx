@@ -4,7 +4,7 @@ import { whatsappLink, site } from '../data/site'
 
 const badges = [
   { titulo: `+${site.anosMercado} anos`, sub: 'de mercado' },
-  { titulo: 'R$ 11,00', sub: 'preço único' },
+  { titulo: 'R$ 12,00', sub: 'preço único' },
   { titulo: 'Sem encargos', sub: 'zero vínculo' },
   { titulo: 'Até 24h', sub: 'na entrega' },
 ]
